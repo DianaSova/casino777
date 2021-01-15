@@ -1,16 +1,29 @@
-import random
-from chitcube import chitcube
-from cube import dice
+# Casino777 предлагает Вам окунуться в мир азарта и кутежа.
 
-cube1 = chitcube()
-cube2 = chitcube()
+import random
+from cube import dice
+from chitcube import chitcube
+
+#------------------------------------------------------------
+# Если Вы читер, замените dice ниже на chitcube.
+#------------------------------------------------------------
+
+cube1 = dice()
+cube2 = dice()
+
+# Если Вы играете честно, нужно закомментить следующую строку.
 cube1.value = 6
 
+# Стартовый баланс игрока
 cash = 10
 print('Добро пожаловать!')
+
+# "Пока есть деньги"
 while cash > 0:
     print('Баланс: ' + str(cash))
     print('Сделайте Вашу ставку:')
+
+    # Проверка корректности ставки
     while True:
         try:
             stavka = float(input())
@@ -22,7 +35,11 @@ while cash > 0:
                 print('Кого ты пытаешься обмануть?')
         except:
             pass
+
+    # Округление до двух знаков после запятой
     cash = round(cash - stavka, 2)
+
+    # Выбор числа
     while True:
         print ('Введите число от 2 до 12:')
         try:
@@ -34,10 +51,12 @@ while cash > 0:
         except:
             pass
 
+    # Кубики (кидаються)
     Y1 = cube1.roll()
     Y2 = cube2.roll()
     Y = Y1 + Y2
 
+    # Исходя из вероятности выпадения числел и их суммы на двух кубах:    #
     if Y == X:
         if X == 7:
             stavka = stavka * 2
