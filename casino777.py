@@ -26,18 +26,18 @@ while cash > 0:
     # Проверка корректности ставки
     while True:
         try:
-            stavka = float(input())
-            if stavka > 0 and stavka <= cash:
+            bet = float(input())
+            if bet > 0 and bet <= cash:
                 break
-            if stavka < 0:
+            if bet < 0:
                 print('Негативные ставки не принимаются')
-            if stavka > cash:
+            if bet > cash:
                 print('Кого ты пытаешься обмануть?')
         except:
             pass
 
     # Округление до двух знаков после запятой
-    cash = round(cash - stavka, 2)
+    cash = round(cash - bet, 2)
 
     # Выбор числа
     while True:
@@ -59,26 +59,26 @@ while cash > 0:
     # Исходя из вероятности выпадения числел и их суммы на двух кубах:    #
     if Y == X:
         if X == 7:
-            stavka = stavka * 2
+            bet = bet * 2
         if X == 6 or X == 8:
-            stavka = stavka * 3
+            bet = bet * 3
         if X == 5 or X == 9:
-            stavka = stavka * 5
+            bet = bet * 5
         if X == 4 or X == 10:
-            stavka = stavka * 11
+            bet = bet * 11
         if X == 3 or X == 11:
-            stavka = stavka * 17
+            bet = bet * 17
         if X == 2 or X == 12:
-            stavka = stavka * 35
-        stavka = round(stavka, 2)
-        print ('Поздраляю! Ваш выигрыш ' + str(stavka))
+            bet = bet * 35
+        bet = round(bet, 2)
+        print ('Поздраляю! Ваш выигрыш ' + str(bet))
     elif X == Y + 1 or X == Y -1:
-        stavka = round(stavka + 0.1, 2)
-        print('Почти угадал... Выигрыш: ' + str(stavka))
+        bet = round(bet + 0.1, 2)
+        print('Почти угадал... Выигрыш: ' + str(bet))
         print('Выпавшее число: ' + str(Y))
     else:
         print ('Проигрыш.')
         print ('Выпавшее число: ' + str(Y))
-        stavka = 0
-    cash = round(cash + stavka, 2)
+        bet = 0
+    cash = round(cash + bet, 2)
 print ('Приходи еще. Когда будут деньги...')
