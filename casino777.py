@@ -71,7 +71,7 @@ while cash > 0:
         if X == 2 or X == 12:
             bet = bet * 35
         bet = round(bet, 2)
-        print ('Поздраляю! Ваш выигрыш ' + str(bet))
+        print ('Поздравляю! Ваш выигрыш ' + str(bet))
     elif X == Y + 1 or X == Y -1:
         bet = round(bet + 0.1, 2)
         print('Почти угадал... Выигрыш: ' + str(bet))
